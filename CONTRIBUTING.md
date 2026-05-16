@@ -1,3 +1,5 @@
+<img width="930" height="468" alt="logo" src="https://github.com/user-attachments/assets/ed871dc1-624d-46d3-a690-9bc641ddf94e" />
+
 # Contributing Guidelines
 
 Thank you for contributing to this bug bounty repository.
