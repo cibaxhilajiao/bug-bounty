@@ -9,3 +9,10 @@ export async function createUser(payload) {
   users.push(user);
   return user;
 }
+
+export async function getUserByUsername(username) {
+  const user = users.find(
+    (u) => u.username?.toLowerCase() === username?.toLowerCase()
+  );
+  return user || null;
+}
