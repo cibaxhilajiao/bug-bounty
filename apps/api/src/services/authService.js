@@ -1,6 +1,14 @@
 import { signAccessToken } from "../utils/jwt.js";
 
+const PUBLIC_ROLES = new Set(["client", "freelancer"]);
+
 export async function registerUser(payload) {
+  // Defense-in-depth: reject elevated roles even if validation is bypassed
+  if (!PUBLIC_ROLES.has(payload.role)) {
+    const err = new Error("Elevated role not permitted during registration");
+    err.statusCode = 400;
+    throw err;
+  }
   // TODO: persist new user via Prisma
   return {
     id: `usr_${Date.now()}`,
